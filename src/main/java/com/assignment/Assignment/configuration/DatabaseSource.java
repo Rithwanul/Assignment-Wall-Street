@@ -40,7 +40,6 @@ public class DatabaseSource {
         dataSource.setUrl("jdbc:mysql://localhost:3307/test?allowPublicKeyRetrieval=true&useSSL=false");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
-
         return dataSource;
     }
 
