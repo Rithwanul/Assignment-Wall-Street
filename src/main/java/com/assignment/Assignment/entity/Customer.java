@@ -7,9 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "tbl_customer")
@@ -64,6 +62,6 @@ public class Customer {
     @JoinColumn(name = "fk_customer_id", referencedColumnName = "customer_id")
     @ToString.Exclude
     @Builder.Default
-    private List<Wish> tblWishes = new ArrayList<>();
+    private List<Wish> wishes = new ArrayList<>();
 
 }
