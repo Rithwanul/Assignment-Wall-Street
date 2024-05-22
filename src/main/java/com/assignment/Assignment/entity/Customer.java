@@ -62,6 +62,8 @@ public class Customer {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_customer_id", referencedColumnName = "customer_id")
+    @ToString.Exclude
+    @Builder.Default
     private List<Wish> tblWishes = new ArrayList<>();
 
 }

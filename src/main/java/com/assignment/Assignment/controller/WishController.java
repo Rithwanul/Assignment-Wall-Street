@@ -16,8 +16,12 @@ import java.util.List;
 public class WishController {
 
 
+    private final WishService wishService;
+
     @Autowired
-    private WishService wishService;
+    public WishController(WishService wishService) {
+        this.wishService = wishService;
+    }
 
     @GetMapping
     private ResponseEntity<List<Wish>> getAllWishes() {

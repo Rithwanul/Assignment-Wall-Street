@@ -10,8 +10,12 @@ import java.util.List;
 @Service
 public class WishServiceImpl implements WishService {
 
+    private final WishRepository wishRepository;
+
     @Autowired
-    private WishRepository wishRepository;
+    public WishServiceImpl(WishRepository wishRepository) {
+        this.wishRepository = wishRepository;
+    }
 
     @Override
     public List<Wish> getAllWishes() {
