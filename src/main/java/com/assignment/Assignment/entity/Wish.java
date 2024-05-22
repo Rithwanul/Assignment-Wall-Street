@@ -7,7 +7,9 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -38,5 +40,10 @@ public class Wish {
     @Column(name = "product_item_id", length = 100)
     private Integer productItemId;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_wish_id", referencedColumnName = "wish_id")
+    @ToString.Exclude
+    @Builder.Default
+    private List<ProductItem> productItems = new ArrayList<>();
 
 }
