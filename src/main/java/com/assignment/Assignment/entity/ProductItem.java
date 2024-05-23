@@ -1,8 +1,11 @@
 package com.assignment.Assignment.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -47,6 +50,4 @@ public class ProductItem {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_item_origin_id", referencedColumnName = "product_item_origin_id")
     private ProductItemOrigin productItemOrigin;
-
-
 }

@@ -2,7 +2,7 @@ INSERT INTO test.tbl_customer
 (age, customer_id, city, email, first_name, last_name, mobile, street)
 VALUES(30, 0, 'Dhaka', 'rithwanul@gmail.com', 'T.M. Rithwanul', 'Islam', '+8801784949150', '25/13 Munshi Bari'),
       (46, 0, 'Dhaka', 'shoaib@gmail.com', 'Shoaib', 'Akhter', '+8801911612148', 'Road no: 15, Rupnagar R/A'),
-      (19, 0, 'Rajshahi', 'james@gmail.com', '', 'Islam', '+8801718452369', '25/13 Munshi Bari');
+      (19, 0, 'Rajshahi', 'james@gmail.com', 'James', 'Islam', '+8801718452369', '25/13 Munshi Bari');
 
 
 INSERT INTO test.tbl_wish
@@ -42,5 +42,23 @@ where tpi.product_item_id = 2;
 UPDATE tbl_product_item tpi
 set tpi.product_item_origin_id = 2
 where tpi.product_item_id = 3;
+
+INSERT INTO test.tbl_order
+(fk_customer_id, order_id, total_amount, created_at, updated_at)
+VALUES (1, 0, 0.00, '2023-12-01T01:23:06', '2023-12-01T01:23:06'),
+       (2, 0, 0.00, '2023-12-01T01:23:06', '2023-12-01T01:23:06'),
+       (3, 0, 0.00, '2023-12-01T01:23:06', '2023-12-01T01:23:06');
+
+update tbl_product_item tpi
+set tpi.fk_order_id = 1
+WHERE tpi.product_item_id = 1;
+
+update tbl_product_item tpi
+set tpi.fk_order_id = 2
+WHERE tpi.product_item_id = 2;
+
+update tbl_product_item tpi
+set tpi.fk_order_id = 3
+WHERE tpi.product_item_id = 3;
 
 

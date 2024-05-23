@@ -1,49 +1,50 @@
 package com.assignment.Assignment.entity;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "tbl_wish")
+@Table(name = "tbl_order")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Wish {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "wish_id", nullable = false)
+    @Column(name = "order_id", nullable = false)
     private Integer id;
 
-    @NotNull
-    @Column(name = "amount", nullable = false, precision = 38, scale = 2)
-    private BigDecimal amount;
-
     @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    LocalDateTime createdAt;
 
     @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    LocalDateTime updatedAt;
 
-    @Size(max = 100)
-    @Column(name = "product_item_id", length = 100)
-    private Integer productItemId;
+    @NotNull
+    @Column(name = "total_amount", nullable = false)
+    private BigDecimal totalAmount;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_wish_id", referencedColumnName = "wish_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_customer_id", referencedColumnName = "customer_id")
+    private Customer customer;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_order_id", referencedColumnName = "order_id")
     @ToString.Exclude
     @Builder.Default
     private List<ProductItem> productItems = new ArrayList<>();
