@@ -6,24 +6,23 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 
 
 @Getter
 @Setter
 @Entity
-@Table(name = "tbl_product")
+@Table(name = "tbl_product_item_origin")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class ProductItemOrigin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_id", nullable = false)
+    @Column(name = "product_item_origin_id", nullable = false)
     private Integer id;
 
-    @Column(name = "product_name")
+    @Column(name = "product_item_origin_name")
     private String productName;
 
     @Column(name = "created_at")

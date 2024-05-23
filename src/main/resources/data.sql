@@ -24,3 +24,23 @@ VALUES(30.25, 1, 0, 45.25, '2023-12-01T01:23:06', '2023-12-01T01:23:06', 'Calcul
       (12.50, 2, 0, 15.30, '2023-12-01T01:23:06', '2023-12-01T01:23:06', 'Birthday Card');
 
 
+INSERT INTO test.tbl_product_item_origin
+(base_amount, product_item_origin_id, sell_amount, created_at, updated_at, product_item_origin_name)
+VALUES(30.25, 0, 45.25, '2023-12-01T01:23:06', '2023-12-01T01:23:06', 'Calculator'),
+      (45.66, 0, 65.22, '2023-12-01T01:23:06', '2023-12-01T01:23:06', 'Flower Vase'),
+      (12.50, 0, 15.30, '2023-12-01T01:23:06', '2023-12-01T01:23:06', 'Birthday Card');
+
+
+UPDATE tbl_product_item tpi
+set tpi.product_item_origin_id = 1
+where tpi.product_item_id = 1;
+
+UPDATE tbl_product_item tpi
+set tpi.product_item_origin_id = 3
+where tpi.product_item_id = 2;
+
+UPDATE tbl_product_item tpi
+set tpi.product_item_origin_id = 2
+where tpi.product_item_id = 3;
+
+
