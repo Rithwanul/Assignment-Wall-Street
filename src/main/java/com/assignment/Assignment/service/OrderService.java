@@ -1,9 +1,8 @@
 package com.assignment.Assignment.service;
 
-import com.assignment.Assignment.entity.Order;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 public interface OrderService {
-    List<Order> getAllOrders();
+    Double getTotalSaleOfADay(LocalDateTime fromDate, LocalDateTime toDate);
 }

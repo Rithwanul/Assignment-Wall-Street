@@ -43,11 +43,11 @@ UPDATE tbl_product_item tpi
 set tpi.product_item_origin_id = 2
 where tpi.product_item_id = 3;
 
-INSERT INTO test.tbl_order
-(fk_customer_id, order_id, total_amount, created_at, updated_at)
-VALUES (1, 0, 0.00, '2023-12-01T01:23:06', '2023-12-01T01:23:06'),
-       (2, 0, 0.00, '2023-12-01T01:23:06', '2023-12-01T01:23:06'),
-       (3, 0, 0.00, '2023-12-01T01:23:06', '2023-12-01T01:23:06');
+# INSERT INTO test.tbl_order
+# (fk_customer_id, order_id, total_amount, created_at, updated_at)
+# VALUES (1, 0, 45.25, '2023-12-01T01:23:06', '2023-12-01T01:23:06'),
+#        (2, 0, 65.22, '2023-12-01T01:23:06', '2023-12-01T01:23:06'),
+#        (3, 0, 15.3, '2023-12-01T01:23:06', '2023-12-01T01:23:06');
 
 update tbl_product_item tpi
 set tpi.fk_order_id = 1
