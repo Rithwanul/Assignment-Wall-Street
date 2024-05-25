@@ -4,11 +4,14 @@ import com.assignment.Assignment.entity.ProductItem;
 import com.assignment.Assignment.service.OrderService;
 import com.assignment.Assignment.service.ProductItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -42,6 +45,21 @@ public class OrderController {
 
         if (topFiveProductItemOfAllTime != null) {
             return new ResponseEntity<>(topFiveProductItemOfAllTime, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping("get-top-five-product-item-of-all-time-by-quantity")
+    public ResponseEntity<?> getTopFiveProductItemOfAllTimeByQuantity() {
+
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime fromDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), now.getHour(), now.getMinute(), now.getSecond());
+        LocalDateTime toDate = fromDate.minusMonths(1);
+        List<ProductItem> topFiveProductItemOfAllTimeByQuantity =
+                productItemService.getTopFiveProductItemOfAllTimeByQuantity(fromDate, toDate);
+
+        if (topFiveProductItemOfAllTimeByQuantity != null) {
+            return new ResponseEntity<>(topFiveProductItemOfAllTimeByQuantity, HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }

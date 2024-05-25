@@ -41,6 +41,10 @@ public class ProductItem {
     @Column(name = "sell_amount", nullable = false, precision = 38, scale = 2)
     private BigDecimal sellAmount;
 
+    @NotNull
+    @Column(name = "quantity", nullable = false)
+    private int quantity;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
