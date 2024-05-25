@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface ProductItemService {
     List<ProductItem> getAllProduct();
+
+    List<ProductItem> getTopFiveProductItemOfAllTime();
+
 }

@@ -21,4 +21,9 @@ public class ProductItemServiceImpl implements ProductItemService {
     public List<ProductItem> getAllProduct() {
         return productItemRepository.findAll();
     }
+
+    @Override
+    public List<ProductItem> getTopFiveProductItemOfAllTime() {
+        return productItemRepository.getTopFiveProductItemOfAllTime();
+    }
 }
